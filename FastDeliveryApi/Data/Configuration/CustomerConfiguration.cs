@@ -34,19 +34,19 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
             new Customer
             {
                 Id= 1,
-                Name = "Suleyma Lopez",
-                Email = "suleyma@univo.edu.sv",
+                Name = "sara Lopez",
+                Email = "sara@univo.edu.sv",
                 Address = "San Miguel",
-                PhoneNumber = "0000-0000",
+                PhoneNumber = "5222-0000",
                 Status = true
             },
             new Customer
             {
                 Id= 2,
-                Name = "Kevin Vasquez",
-                Email = "kvasquez@univo.edu.sv",
+                Name = "Manuel Luna",
+                Email = "luna34@univo.edu.sv",
                 Address = "San Salvadocr",
-                PhoneNumber = "2200-5500",
+                PhoneNumber = "3455-5500",
                 Status = true
             }
         );

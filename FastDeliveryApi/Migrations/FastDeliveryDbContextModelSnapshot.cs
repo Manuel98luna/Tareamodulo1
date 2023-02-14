@@ -62,18 +62,18 @@ namespace FastDeliveryApi.Migrations
                         {
                             Id = 1,
                             Address = "San Miguel",
-                            Email = "suleyma@univo.edu.sv",
-                            Name = "Suleyma Lopez",
-                            PhoneNumber = "0000-0000",
+                            Email = "sara@univo.edu.sv",
+                            Name = "sara Lopez",
+                            PhoneNumber = "5222-0000",
                             Status = true
                         },
                         new
                         {
                             Id = 2,
                             Address = "San Salvadocr",
-                            Email = "kvasquez@univo.edu.sv",
-                            Name = "Kevin Vasquez",
-                            PhoneNumber = "2200-5500",
+                            Email = "luna34@univo.edu.sv",
+                            Name = "Manuel Luna",
+                            PhoneNumber = "3455-5500",
                             Status = true
                         });
                 });

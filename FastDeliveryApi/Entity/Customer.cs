@@ -1,6 +1,7 @@
+using FastDeliveryAp.Repositories;
 namespace FastDeliveryApi.Entity;
 
-public class Customer
+public class Customer : IAuditableEntity;
 {
     public int Id { get; set; }
     

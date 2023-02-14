@@ -35,8 +35,8 @@ namespace FastDeliveryApi.Migrations
                 columns: new[] { "Id", "Address", "Email", "Name", "PhoneNumberCustomer", "Status" },
                 values: new object[,]
                 {
-                    { 1, "San Miguel", "suleyma@univo.edu.sv", "Suleyma Lopez", "0000-0000", true },
-                    { 2, "San Salvadocr", "kvasquez@univo.edu.sv", "Kevin Vasquez", "2200-5500", true }
+                    { 1, "San Miguel", "sara@univo.edu.sv", "sara Lopez", "5222-0000", true },
+                    { 2, "San Salvadocr", "luna34@univo.edu.sv", "Manuel Luna", "3455-5500", true }
                 });
         }
 
