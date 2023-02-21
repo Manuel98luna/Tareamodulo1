@@ -1,12 +1,23 @@
-using FastDeliveryApi.Data;
 using Microsoft.EntityFrameworkCore;
+using FastDeliveryAPI.Data;
+using FastDeliveryAPI.Repositories.Interfaces;
+using FastDeliveryAPI.Repositories;
+using FastDeliveryAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connnectionsString = builder.Configuration.GetConnectionString("MyDbPgsql");
-builder.Services.AddDbContext <FastDeliveryDbContext> (options => {
-    options.UseNpgsql(connnectionsString);
+builder.Services.AddScoped<IUnitOfWorks, UnitOfWork>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+
+
+
+var connectionString = builder.Configuration.GetConnectionString("MyDbPgsql");
+
+builder.Services.AddDbContext<FastDeliveryDbContext>(options =>
+{
+    options.UseNpgsql(connectionString);
 });
 
 builder.Services.AddControllers();
@@ -14,11 +25,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(opcion =>{
-    opcion.AddPolicy ("AllowAll",
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
         b => b.AllowAnyHeader()
-         .AllowAnyOrigin()
-        .AllowAnyMethod());
+            .AllowAnyMethod()
+            .AllowAnyOrigin());
 });
 
 var app = builder.Build();
@@ -30,9 +42,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseCors("AllowAll");
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
